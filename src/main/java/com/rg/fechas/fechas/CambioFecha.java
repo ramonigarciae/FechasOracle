@@ -17,9 +17,13 @@ public class CambioFecha {
 	public Date agregarMesesFormatOracle(Date date, int meses) {
 		GregorianCalendar gc = new GregorianCalendar();
 		gc.setTime(date);
+		// Si es el último día
 		if (esUltimoDiaMes(date)) {
+			// Se asigna la fecha al primer día del mes
 			gc.set(Calendar.DATE, 1);
+			// Se agrega la cantidad de meses, permaneciendo en el primer día
 			gc.add(Calendar.MONTH, meses);
+			// Se asigna el último día del mes a la fecha
 			gc.set(Calendar.DATE, gc.getActualMaximum(Calendar.DAY_OF_MONTH));
 		} else {
 			gc.add(Calendar.MONTH, meses);
